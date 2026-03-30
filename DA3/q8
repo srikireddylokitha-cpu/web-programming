@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<title>Multiplication Table</title> 
+
+ 
+
+<script> 
+
+function printTable() 
+
+{ 
+
+    var num = document.getElementById("number").value; 
+
+    var i = 1; 
+
+    var result = ""; 
+
+ 
+
+    do 
+
+    { 
+
+        result = result + num + " x " + i + " = " + (num*i) + "<br>"; 
+
+        i++; 
+
+    } 
+
+    while(i <= 10); 
+
+ 
+
+    document.getElementById("output").innerHTML = result; 
+
+} 
+
+</script> 
+
+ 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<h3>Name: LOKITHA SRIKIREDDY</h3> 
+
+<h3>Registration No: 24BCE0074</h3> 
+
+ 
+
+<h2>Multiplication Table Generator</h2> 
+
+ 
+
+Enter a Number: 
+
+<input type="text" id="number"><br><br> 
+
+ 
+
+<button onclick="printTable()">Generate Table</button> 
+
+ 
+
+<p id="output"></p> 
+
+ 
+
+</body> 
+
+</html> 
+
+ 
+
+ 
+
+ 
