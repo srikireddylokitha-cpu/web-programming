@@ -1,0 +1,125 @@
+
+ 
+
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<title>Checkbox Count Example</title> 
+
+ 
+
+<script> 
+
+function countSubjects() 
+
+{ 
+
+    var subjects = document.getElementsByName("subject"); 
+
+    var selectedSubjects = []; 
+
+    var count = 0; 
+
+ 
+
+    for(var i = 0; i < subjects.length; i++) 
+
+    { 
+
+        if(subjects[i].checked) 
+
+        { 
+
+            selectedSubjects.push(subjects[i].value);  
+
+            count++;  
+
+        } 
+
+    } 
+
+ 
+
+    document.getElementById("result").innerHTML = 
+
+    "Total Selected Subjects: " + count + "<br>" + 
+
+    "Selected Subjects: " + selectedSubjects.join(", "); 
+
+} 
+
+</script> 
+
+ 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<h3>Name: LOKITHA SRIKIREDDY</h3> 
+
+<h3>Registration No: 24BCE0074</h3> 
+
+ 
+
+<h2>Select Subjects</h2> 
+
+ 
+
+<input type="checkbox" name="subject" value="Mathematics"> Mathematics <br> 
+
+<input type="checkbox" name="subject" value="Physics"> Physics <br> 
+
+<input type="checkbox" name="subject" value="Chemistry"> Chemistry <br> 
+
+<input type="checkbox" name="subject" value="Computer Science"> Computer Science <br><br> 
+
+ 
+
+<button onclick="countSubjects()">Show Selected Subjects</button> 
+
+ 
+
+<p id="result"></p> 
+
+ 
+
+</body> 
+
+</html> 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
