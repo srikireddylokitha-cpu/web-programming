@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<title>Print Numbers</title> 
+
+ 
+
+<script> 
+
+function printNumbers() 
+
+{ 
+
+    var n = document.getElementById("num").value; 
+
+    var i = 1; 
+
+    var result = ""; 
+
+ 
+
+    while(i <= n) 
+
+    { 
+
+        result = result + i + " "; 
+
+        i++; 
+
+    } 
+
+ 
+
+    document.getElementById("output").innerHTML = result; 
+
+} 
+
+</script> 
+
+ 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<h3>Name: LOKITHA SRIKIREDDY</h3> 
+
+<h3>Registration No: 24BCE0074</h3> 
+
+ 
+
+<h2>Print Numbers from 1 to N</h2> 
+
+ 
+
+Enter N: 
+
+<input type="text" id="num"><br><br> 
+
+ 
+
+<button onclick="printNumbers()">Print Numbers</button> 
+
+ 
+
+<p id="output"></p> 
+
+ 
+
+</body> 
+
+</html> 
+
+ 
+
+ 
