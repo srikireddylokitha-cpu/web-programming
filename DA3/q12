@@ -1,0 +1,123 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<title>Job Skills Form</title> 
+
+ 
+
+<script> 
+
+function validateSkills() 
+
+{ 
+
+    var skills = document.getElementsByName("skill"); 
+
+    var selectedSkills = []; 
+
+     
+
+    for(var i = 0; i < skills.length; i++)   // for loop with index 
+
+    { 
+
+        if(skills[i].checked) 
+
+        { 
+
+            selectedSkills.push(skills[i].value); 
+
+        } 
+
+    } 
+
+ 
+
+    if(selectedSkills.length < 3)   // array length property 
+
+    { 
+
+        document.getElementById("result").innerHTML = 
+
+        "Error: Please select at least 3 skills."; 
+
+    } 
+
+    else 
+
+    { 
+
+        document.getElementById("result").innerHTML = 
+
+        "Selected Skills: " + selectedSkills.join(", ");   // string concatenation 
+
+    } 
+
+} 
+
+</script> 
+
+ 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<h3>Name: LOKITHA SRIKIREDDY</h3> 
+
+<h3>Registration No: 24BCE0074</h3> 
+
+ 
+
+<h2>Select Your Job Skills</h2> 
+
+ 
+
+<form id="skillForm"> 
+
+ 
+
+<input type="checkbox" name="skill" value="HTML"> HTML <br> 
+
+<input type="checkbox" name="skill" value="CSS"> CSS <br> 
+
+<input type="checkbox" name="skill" value="JavaScript"> JavaScript <br> 
+
+<input type="checkbox" name="skill" value="Python"> Python <br> 
+
+<input type="checkbox" name="skill" value="Java"> Java <br> 
+
+ 
+
+<br> 
+
+<button type="button" onclick="validateSkills()">Submit</button> 
+
+ 
+
+</form> 
+
+ 
+
+<p id="result"></p> 
+
+ 
+
+</body> 
+
+</html> 
+
+ 
+
+ 
+
+ 
+
+ 
