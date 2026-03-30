@@ -1,0 +1,208 @@
+
+ 
+
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<title>Student Information System</title> 
+
+ 
+
+<style> 
+
+body{ 
+
+font-family: Arial; 
+
+background-color: #f2f2f2; 
+
+} 
+
+ 
+
+table, th, td{ 
+
+border:1px solid black; 
+
+border-collapse:collapse; 
+
+padding:8px; 
+
+} 
+
+ 
+
+th{ 
+
+background-color:lightblue; 
+
+} 
+
+</style> 
+
+ 
+
+<script> 
+
+ 
+
+var studentList = []; // global array 
+
+ 
+
+function addStudent(btn) 
+
+{ 
+
+var form = btn.form; 
+
+ 
+
+var name = form.elements["name"].value; 
+
+var reg = form.elements["reg"].value; 
+
+var course = form.elements["course"].value; 
+
+ 
+
+var student = { 
+
+studentName:name, 
+
+registration:reg, 
+
+studentCourse:course, 
+
+ 
+
+display:function(){ 
+
+return this.studentName + " - " + this.registration + " - " + this.studentCourse; 
+
+} 
+
+}; 
+
+ 
+
+studentList.push(student); 
+
+ 
+
+displayTable(); 
+
+ 
+
+form.reset(); 
+
+form.elements["name"].focus(); 
+
+} 
+
+ 
+
+function displayTable() 
+
+{ 
+
+var tableData = "<table><tr><th>Name</th><th>Registration</th><th>Course</th></tr>"; 
+
+ 
+
+for(var i=0;i<studentList.length;i++) 
+
+{ 
+
+tableData += "<tr><td>" + studentList[i].studentName + "</td><td>" + studentList[i].registration + "</td><td>" + studentList[i].studentCourse + "</td></tr>"; 
+
+} 
+
+ 
+
+tableData += "</table>"; 
+
+ 
+
+document.getElementById("result").innerHTML = tableData; 
+
+} 
+
+ 
+
+</script> 
+
+ 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<h3>Name: LOKITHA SRIKIREDDY</h3> 
+
+<h3>Registration No: 24BCE0074</h3> 
+
+ 
+
+<h2>Student Information System</h2> 
+
+ 
+
+<form> 
+
+ 
+
+Name: 
+
+<input type="text" name="name"><br><br> 
+
+ 
+
+Registration Number: 
+
+<input type="text" name="reg"><br><br> 
+
+ 
+
+Course: 
+
+<input type="text" name="course"><br><br> 
+
+ 
+
+<input type="button" value="Add Student" onclick="addStudent(this)"> 
+
+ 
+
+</form> 
+
+ 
+
+<br> 
+
+ 
+
+<div id="result"></div> 
+
+ 
+
+</body> 
+
+</html> 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
