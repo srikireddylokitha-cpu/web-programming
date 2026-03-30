@@ -1,0 +1,143 @@
+
+ 
+
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <title>Font Customization Tool</title> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <h2>Dynamic Font Customization Tool</h2> 
+
+    <p><strong>Name:</strong> LOKITHA SRIKIREDDY</p> 
+
+    <p><strong>Registration No:</strong> 24BCE0074</p> 
+
+ 
+
+    <!-- Fieldset for grouping controls --> 
+
+    <fieldset> 
+
+        <legend>Customize Text</legend> 
+
+ 
+
+        <!-- Font Size --> 
+
+        <label>Font Size:</label> 
+
+        <input type="range" id="fontSize" min="10" max="60" value="20"> 
+
+        <br><br> 
+
+ 
+
+        <!-- Font Color --> 
+
+        <label>Font Color:</label> 
+
+        <input type="color" id="fontColor"> 
+
+        <br><br> 
+
+ 
+
+        <!-- Background Color --> 
+
+        <label>Background Color:</label> 
+
+        <input type="color" id="bgColor"> 
+
+        <br><br> 
+
+ 
+
+    </fieldset> 
+
+ 
+
+    <!-- Text Preview --> 
+
+    <h3 id="text">This is your customizable text!</h3> 
+
+ 
+
+    <script> 
+
+        const text = document.getElementById("text"); 
+
+ 
+
+        // Font size change 
+
+        document.getElementById("fontSize").addEventListener("input", function() { 
+
+            text.style.fontSize = this.value + "px"; 
+
+        }); 
+
+ 
+
+        // Font color change 
+
+        document.getElementById("fontColor").addEventListener("input", function() { 
+
+            text.style.color = this.value; 
+
+        }); 
+
+ 
+
+        // Background color change 
+
+        document.getElementById("bgColor").addEventListener("input", function() { 
+
+            text.style.backgroundColor = this.value; 
+
+        }); 
+
+    </script> 
+
+ 
+
+</body> 
+
+</html> 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
