@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<title>Hello World</title> 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<h3>Name: LOKITHA SRIKIREDDY</h3> 
+
+<h3>Registration No: 24BCE0074</h3> 
+
+ 
+
+<button onclick="showText()">Click Me</button> 
+
+ 
+
+<p id="demo">Press the button</p> 
+
+ 
+
+<script> 
+
+function showText() 
+
+{ 
+
+    var message = "Hello, world!";   // variable 
+
+    var element = document.getElementById("demo");  // DOM access 
+
+    element.outerHTML = "<h3>" + message + "</h3>"; // outerHTML 
+
+} 
+
+</script> 
+
+ 
+
+</body> 
+
+</html> 
