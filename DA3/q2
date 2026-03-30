@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<title>Background Color Changer</title> 
+
+ 
+
+<script> 
+
+function changeColor(color) 
+
+{ 
+
+    document.body.style.backgroundColor = color; 
+
+} 
+
+</script> 
+
+ 
+
+</head> 
+
+ 
+
+<body> 
+
+ 
+
+<h3>Name: lokitha srikireddy/h3> 
+
+<h3>Registration No: 24BCE0074</h3> 
+
+ 
+
+<h2>Change Background Color</h2> 
+
+ 
+
+<button type="button" onclick="changeColor('red')">Red</button> 
+
+<button type="button" onclick="changeColor('green')">Green</button> 
+
+<button type="button" onclick="changeColor('blue')">Blue</button> 
+
+ 
+
+</body> 
+
+</html> 
+
+ 
