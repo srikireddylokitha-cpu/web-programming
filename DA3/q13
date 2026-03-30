@@ -1,0 +1,225 @@
+<!DOCTYPE html>  
+
+ 
+
+<html>  
+
+ 
+
+<head>  
+
+ 
+
+<title>Product Order Form</title>  
+
+ 
+
+ 
+
+<script>  
+
+ 
+
+function calculateTotal()  
+
+ 
+
+{  
+
+ 
+
+var items = document.querySelectorAll('input[type="checkbox"]:checked');  
+
+ 
+
+var total = 0;  
+
+ 
+
+ 
+
+for (var item of items) // modern for...of loop  
+
+ 
+
+{  
+
+ 
+
+total += parseFloat(item.value); // convert price to number  
+
+ 
+
+}  
+
+ 
+
+ 
+
+document.getElementById("result").innerHTML =  
+
+ 
+
+"Total Price: ₹" + total;  
+
+ 
+
+}  
+
+ 
+
+</script>  
+
+ 
+
+ 
+
+</head>  
+
+ 
+
+ 
+
+<body>  
+
+ 
+
+ 
+
+<h3>LOKITHA SRIKIREDDY</h3>  
+
+ 
+
+<h3>Registration No: 24BCE0074</h3>  
+
+ 
+
+ 
+
+<h2>Product Order Form</h2>  
+
+ 
+
+ 
+
+<form>  
+
+ 
+
+ 
+
+<fieldset>  
+
+ 
+
+<legend>Electronics</legend>  
+
+ 
+
+<input type="checkbox" value="20000"> Laptop (₹20000)<br>  
+
+ 
+
+<input type="checkbox" value="15000"> Tablet (₹15000)<br>  
+
+ 
+
+<input type="checkbox" value="8000"> Smartphone (₹8000)<br>  
+
+ 
+
+</fieldset>  
+
+ 
+
+ 
+
+<br>  
+
+ 
+
+ 
+
+<fieldset>  
+
+ 
+
+<legend>Accessories</legend>  
+
+ 
+
+<input type="checkbox" value="1000"> Headphones (₹1000)<br>  
+
+ 
+
+<input type="checkbox" value="500"> Mouse (₹500)<br>  
+
+ 
+
+<input type="checkbox" value="700"> Keyboard (₹700)<br>  
+
+ 
+
+</fieldset>  
+
+ 
+
+ 
+
+<br>  
+
+ 
+
+ 
+
+<fieldset>  
+
+ 
+
+<legend>Software</legend>  
+
+ 
+
+<input type="checkbox" value="2000"> Antivirus (₹2000)<br>  
+
+ 
+
+<input type="checkbox" value="3000"> Office Suite (₹3000)<br>  
+
+ 
+
+</fieldset>  
+
+ 
+
+ 
+
+<br>  
+
+ 
+
+ 
+
+<button type="button" onclick="calculateTotal()">Calculate Total</button>  
+
+ 
+
+ 
+
+</form>  
+
+ 
+
+ 
+
+<p id="result"></p>  
+
+ 
+
+ 
+
+</body>  
+
+ 
+
+</html> 
