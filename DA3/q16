@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <title>Overlapping Image Gallery</title> 
+
+    <style> 
+
+        .gallery { 
+
+            position: relative; 
+
+            width: 500px; 
+
+            height: 350px; 
+
+        } 
+
+ 
+
+        .gallery img { 
+
+            width: 200px; 
+
+            height: 150px; 
+
+            position: absolute; 
+
+            cursor: pointer; 
+
+            border: 2px solid black; 
+
+        } 
+
+ 
+
+        #img1 { top: 20px; left: 20px; z-index: 1; } 
+
+        #img2 { top: 60px; left: 80px; z-index: 2; } 
+
+        #img3 { top: 100px; left: 140px; z-index: 3; } 
+
+    </style> 
+
+</head> 
+
+<body> 
+
+ 
+
+    <h2>Overlapping Image Gallery</h2> 
+
+    <p><strong>Name:</strong> LOKITHA SRIKIREDDY</p> 
+
+    <p><strong>Registration No:</strong> 24BCE0074</p> 
+
+ 
+
+    <div class="gallery"> 
+
+        <img id="img1" src="https://picsum.photos/id/1015/200/150" onclick="bringToFront(this)"> 
+
+        <img id="img2" src="https://picsum.photos/id/1025/200/150" onclick="bringToFront(this)"> 
+
+        <img id="img3" src="https://picsum.photos/id/1035/200/150" onclick="bringToFront(this)"> 
+
+    </div> 
+
+ 
+
+    <script> 
+
+        let topIndex = 3; 
+
+ 
+
+        function bringToFront(element) { 
+
+            element.style.zIndex = ++topIndex; 
+
+        } 
+
+    </script> 
+</body>
+</html>
