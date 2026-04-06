@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Book Explorer</title>
+
+<!-- React CDN -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<!-- Babel CDN (allows JSX in browser) -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const { useState } = React;
+
+/* Utility Function (API) */
+const searchBooks = async (query) => {
+
+ const res = await fetch(
+   `https://www.googleapis.com/books/v1/volumes?q=${query}`
+ );
+
+ const data = await res.json();
+
+ return data.items || [];
+};
+
+/* Header Component */
+function Header() {
+
+ return (
+   <div>
+
+     <h2 style={{ textAlign: "center" }}>
+       LOKITHA
+     </h2>
+
+     <h3 style={{ textAlign: "center" }}>
+       Book Explorer
+     </h3>
+
+   </div>
+ );
+}
+
+/* Search Component */
+function Search({ onSearch }) {
+
+ const [query, setQuery] = useState("");
+
+ return (
+   <div style={{ textAlign: "center", margin: "20px" }}>
+
+     <input
+       type="text"
+       placeholder="Search books"
+       value={query}
+       onChange={(e) => setQuery(e.target.value)}
+     />
+
+     <button
+       onClick={() => onSearch(query)}
+       style={{ marginLeft: "10px" }}
+     >
+       Search
+     </button>
+
+   </div>
+ );
+}
+
+/* BookCard Component */
+function BookCard({ book }) {
+
+ const info = book.volumeInfo;
+
+ return (
+   <div
+     style={{
+       border: "1px solid gray",
+       padding: "10px",
+       width: "200px"
+     }}
+   >
+
+     <img
+       src={info.imageLinks?.thumbnail}
+       alt="book"
+       style={{ width: "100%" }}
+     />
+
+     <h4>{info.title}</h4>
+
+     <p>{info.authors?.[0]}</p>
+
+     <p>{info.publisher}</p>
+
+     <p>{info.publishedDate}</p>
+
+   </div>
+ );
+}
+
+/* BookList Component */
+function BookList({ books }) {
+
+ return (
+   <div
+     style={{
+       display: "flex",
+       flexWrap: "wrap",
+       gap: "15px",
+       justifyContent: "center"
+     }}
+   >
+
+     {books.map((book) => (
+
+       <BookCard key={book.id} book={book} />
+
+     ))}
+
+   </div>
+ );
+}
+
+/* Main App Component */
+function App() {
+
+ const [books, setBooks] = useState([]);
+
+ const handleSearch = async (query) => {
+
+   const results = await searchBooks(query);
+
+   setBooks(results);
+ };
+
+ return (
+   <div>
+
+     <Header />
+
+     <Search onSearch={handleSearch} />
+
+     <BookList books={books} />
+
+   </div>
+ );
+}
+
+/* Render */
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<App />);
+
+</script>
+
+</body>
+</html>
