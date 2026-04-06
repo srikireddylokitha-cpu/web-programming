@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Weather Dashboard</title>
+
+<!-- React CDN -->
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<!-- Babel CDN (to allow JSX in browser) -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const { useState } = React;
+
+/* Utility Function (API) */
+const getWeather = async (city) => {
+
+ const res = await fetch(`https://wttr.in/${city}?format=j1`);
+
+ const data = await res.json();
+
+ return {
+   name: city,
+   temp: data.current_condition[0].temp_C,
+   desc: data.current_condition[0].weatherDesc[0].value,
+   humidity: data.current_condition[0].humidity,
+   wind: data.current_condition[0].windspeedKmph
+ };
+};
+
+/* Header Component */
+function Header() {
+ return (
+   <div>
+     <h2 style={{ textAlign: "center" }}>
+       LOKITHA SRIKIREDDY 24BCE0074
+     </h2>
+
+     <h3 style={{ textAlign: "center" }}>
+       Weather Dashboard
+     </h3>
+   </div>
+ );
+}
+
+/* Search Component */
+function Search({ onSearch }) {
+
+ const [city, setCity] = useState("");
+
+ return (
+   <div style={{ textAlign: "center", margin: "20px" }}>
+
+     <input
+       type="text"
+       placeholder="Enter city"
+       value={city}
+       onChange={(e) => setCity(e.target.value)}
+     />
+
+     <button
+       onClick={() => onSearch(city)}
+       style={{ marginLeft: "10px" }}
+     >
+       Search
+     </button>
+
+   </div>
+ );
+}
+
+/* Dashboard Component */
+function Dashboard({ weather }) {
+
+ if (!weather) return null;
+
+ return (
+   <div style={{ textAlign: "center" }}>
+
+     <h3>{weather.name}</h3>
+
+     <p>Temperature: {weather.temp} °C</p>
+
+     <p>Condition: {weather.desc}</p>
+
+     <p>Humidity: {weather.humidity}%</p>
+
+     <p>Wind Speed: {weather.wind} km/h</p>
+
+   </div>
+ );
+}
+
+/* Main App Component */
+function App() {
+
+ const [weather, setWeather] = useState(null);
+
+ const handleSearch = async (city) => {
+
+   const data = await getWeather(city);
+
+   setWeather(data);
+ };
+
+ return (
+   <div>
+
+     <Header />
+
+     <Search onSearch={handleSearch} />
+
+     <Dashboard weather={weather} />
+
+   </div>
+ );
+}
+
+/* Render */
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<App />);
+
+</script>
+
+</body>
+</html>
